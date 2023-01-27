@@ -1,0 +1,42 @@
+.home {
+    padding: 1rem;
+
+    >* {
+        padding-top: 1rem;
+        text-align: center;
+
+
+    }
+
+    .add-container {
+        .add-button {
+            margin-left: 0%;
+        }
+    }
+
+    .chart-container {
+        @media only screen and (min-width: 600px) {
+            & {
+                padding-left: 15%;
+                padding-right: 15%;
+            }
+        }
+    }
+
+    .top-preferences-container {
+        @media only screen and (min-width: 600px) {
+            & {
+                padding-left: 15%;
+                padding-right: 15%;
+            }
+        }
+
+        mat-card-title {
+            padding-left: 15px;
+        }
+    }
+
+    &:last-child {
+        padding-bottom: 3rem;
+    }
+}

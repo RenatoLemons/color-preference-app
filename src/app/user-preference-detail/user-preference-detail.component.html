@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>User Preference</h2>
+<div mat-dialog-content>
+    <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput type="text" required formControlName="firstName" name="firstName">
+            <mat-error *ngIf="form.get('firstName')!.hasError('required')">This field is required</mat-error>
+            <mat-error *ngIf="form.get('firstName')!.hasError('min')">Please fill at least 2 characteres</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" required formControlName="lastName" name="lastName">
+            <mat-error *ngIf="form.get('lastName')!.hasError('required')">This field is required</mat-error>
+            <mat-error *ngIf="form.get('lastName')!.hasError('min')">Please fill at least 2 characteres</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Age</mat-label>
+            <input matInput type="number" required formControlName="age" name="age">
+            <mat-error *ngIf="form.get('age')!.hasError('required')">This field is required</mat-error>
+            <mat-error *ngIf="form.get('age')!.hasError('min') || form.get('age')!.hasError('max')">
+                Please enter a valid betwenn 1 and 150
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Color</mat-label>
+            <mat-select matInput required formControlName="colorName" name="colorName">
+                <mat-select-trigger>
+                    {{ colorName }}
+                    <app-drop-icon [colorName]="colorName" />
+                </mat-select-trigger>
+                <mat-option *ngFor="let colorDomain of colorsDomain" [value]="colorDomain.name">
+                    {{colorDomain.name}}
+                    <app-drop-icon [colorName]="colorDomain.name" />
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('colorName')!.hasError('required')">This field is required</mat-error>
+        </mat-form-field>
+        <div mat-dialog-actions>
+            <div mat-dialog-actions>
+                <button mat-raised-button class="close" (click)="cancel()" color="warn">Cancel</button>
+                <button type="submit" mat-raised-button color="primary">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
