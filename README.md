@@ -15,4 +15,4 @@ Navigate to `http://localhost:4200/`.
 
 ## Build
 
-Run `ng build` to build the project and store the artifacts in the `dist/` directory.
+Run `ng build` to build the project and store the artifacts in the `docs/` directory.
